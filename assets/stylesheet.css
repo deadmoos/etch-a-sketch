@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.page-wrapper {
+  width: 900px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.sketch-pad {
+  width: 500px;
+  margin: 20px auto;
+  border: 1px solid black;
+}
+
+.sketch-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sketch-square {
+  border: 1px solid black;
+  flex: 1;
+  height: 20px;
+}
