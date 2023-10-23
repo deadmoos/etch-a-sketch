@@ -11,13 +11,16 @@
 </head>
 <body>
     <div class="page-wrapper">
-        <div class="heading-container">
-            <h1 class="main-heading">Etch a Sketch</h1>            
-        </div>
+        
         <div class="sketch-wrapper">
+            
             <div class="user-input-container">
-                <input type="number" class="grid-input">
-                <button class="grid-input-btn btn">Generate Grid</button>
+                <div class="heading-container">
+                    <h1 class="main-heading">Etch a Sketch</h1>            
+                </div>
+                <label class="input-label" for="grid-input">Enter a Number:</label>
+                <input type="number" class="grid-input" name="grid-input" id="grid-input">
+                <button class="grid-input-btn btn">Generate</button>
                 <div class="color-chooser">
                     <button class="btn-black btn">Black</button>
                     <button class="btn-rgb btn">RGB</button>

@@ -19,13 +19,22 @@
 }
 
 .user-input-container {
-  width: max(200px, 20%);
+  width: max(250px, 20%);
   text-align: left;
+}
+
+.heading-container {
+  margin-bottom: 40px;
 }
 
 .grid-input {
   padding: 10px 20px;
-  width: 100px;
+  width: 120px;
+  border-radius: 25px;
+}
+
+.input-label {
+  text-align: center;
 }
 
 .color-chooser {
@@ -40,7 +49,32 @@
   border: 2px solid black;
   border-radius: 25px;
   margin: 10px 0px;
-  width: 100px;
+  width: 120px;
+  cursor: pointer;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.grid-input-btn {
+  background: #4d0eb3;
+}
+
+.btn-black {
+  background: #000;
+}
+
+.btn-rgb {
+  background: linear-gradient(90deg, red, green, blue);
+}
+
+.btn-brush {
+  background: linear-gradient(
+    90deg,
+    rgb(0, 0, 0),
+    rgb(49, 49, 49),
+    rgb(75, 75, 75)
+  );
 }
 
 .sketch-pad {

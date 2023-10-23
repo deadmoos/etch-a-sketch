@@ -14,16 +14,23 @@ colorBlack.addEventListener("click", function () {
 
 const colorRGB = document.querySelector(".btn-rgb");
 colorRGB.addEventListener("click", function () {
-  gridColor = `rgb(${randomNum()},${randomNum()},${randomNum()})`;
-  console.log(gridColor);
+  gridColor = "rgb";
 });
 
 const colorBrush = document.querySelector(".btn-brush");
 colorBrush.addEventListener("click", function () {
-  gridColor = "black";
+  gridColor = "progressive";
 });
 
-//random color generator
+let colorChosen = function () {
+  if (gridColor === "rgb") {
+    return `rgb(${randomNum()},${randomNum()},${randomNum()})`;
+  } else if (gridColor === "progressive") {
+    console.log(gridColor);
+  } else {
+    return "black";
+  }
+};
 
 //color that progressively gets lighter
 
@@ -40,9 +47,9 @@ const generateGrid = function (x) {
       sketchRow.appendChild(sketchSquare);
 
       sketchSquare.addEventListener("mouseenter", function () {
-        sketchSquare.style.backgroundColor = gridColor;
+        sketchSquare.style.backgroundColor = colorChosen();
       });
-      sketchSquare.style.height = `${500 / userGridSize - 2}px`;
+      sketchSquare.style.height = `${500 / x - 2}px`;
     }
   }
   //setting the height to sketchsquare
@@ -51,10 +58,12 @@ const generateGrid = function (x) {
 //event listener for input button
 const inputButton = document.querySelector(".grid-input-btn");
 inputButton.addEventListener("click", function () {
-  console.log("button clicked");
   userGridSize = Number(document.querySelector(".grid-input").value);
   document.querySelector(".sketch-pad").innerHTML = "";
-  generateGrid(userGridSize);
+  if (userGridSize > 100) {
+    alert("Enter a Number less than 100");
+    generateGrid(16);
+  } else generateGrid(userGridSize);
 });
 
 generateGrid(userGridSize);
