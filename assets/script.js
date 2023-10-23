@@ -1,5 +1,5 @@
+//defaults
 let userGridSize = 16;
-//define color value
 let gridColor = "black";
 
 //random number generator
@@ -7,7 +7,7 @@ let randomNum = function () {
   return Math.floor(Math.random() * 255 + 1);
 };
 
-//choose color
+//choose color button clicked
 const colorBlack = document.querySelector(".btn-black");
 colorBlack.addEventListener("click", function () {
   gridColor = "black";
@@ -23,27 +23,18 @@ colorBrush.addEventListener("click", function () {
   gridColor = "brush";
 });
 
-const gridOpacity = function () {
-  if (gridColor === "brush") {
-    const squareBlock = document.querySelectorAll(".sketch-square");
-    squareBlock.forEach((e) => {
-      let getOpacity = e.style.opacity;
-      getOpacity -= 0.1;
-    });
-  } else return 1;
-};
-
+//function that returns a color depending upon color chosen
 const colorChosen = function () {
   if (gridColor === "rgb") {
     return `rgb(${randomNum()},${randomNum()},${randomNum()})`;
+  } else if (gridColor === "brush") {
+    return "gray";
   } else {
     return "black";
   }
 };
 
-//color that progressively gets lighter
-
-//generate container and div inside .sketch-pad
+//function to generate div grid inside .sketch-pad
 const generateGrid = function (x) {
   for (i = 0; i < x; i++) {
     let sketchRow = document.createElement("div");
@@ -57,15 +48,13 @@ const generateGrid = function (x) {
       sketchSquare.style.backgroundColor = "white";
       sketchSquare.addEventListener("mouseenter", function () {
         sketchSquare.style.backgroundColor = colorChosen();
-        sketchSquare.style.opacity = gridOpacity();
       });
       sketchSquare.style.height = `${500 / x - 2}px`;
     }
   }
-  //setting the height to sketchsquare
 };
 
-//event listener for input button
+//generate grid on user input
 const inputButton = document.querySelector(".grid-input-btn");
 inputButton.addEventListener("click", function () {
   userGridSize = Number(document.querySelector(".grid-input").value);
@@ -76,4 +65,5 @@ inputButton.addEventListener("click", function () {
   } else generateGrid(userGridSize);
 });
 
+//generate default grid
 generateGrid(userGridSize);
