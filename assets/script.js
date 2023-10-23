@@ -1,6 +1,7 @@
 let userGridSize = 16;
 //define color value
 let gridColor = "black";
+
 //random number generator
 let randomNum = function () {
   return Math.floor(Math.random() * 255 + 1);
@@ -19,14 +20,22 @@ colorRGB.addEventListener("click", function () {
 
 const colorBrush = document.querySelector(".btn-brush");
 colorBrush.addEventListener("click", function () {
-  gridColor = "progressive";
+  gridColor = "brush";
 });
 
-let colorChosen = function () {
+const gridOpacity = function () {
+  if (gridColor === "brush") {
+    const squareBlock = document.querySelectorAll(".sketch-square");
+    squareBlock.forEach((e) => {
+      let getOpacity = e.style.opacity;
+      getOpacity -= 0.1;
+    });
+  } else return 1;
+};
+
+const colorChosen = function () {
   if (gridColor === "rgb") {
     return `rgb(${randomNum()},${randomNum()},${randomNum()})`;
-  } else if (gridColor === "progressive") {
-    console.log(gridColor);
   } else {
     return "black";
   }
@@ -45,9 +54,10 @@ const generateGrid = function (x) {
       let sketchSquare = document.createElement("div");
       sketchSquare.className = "sketch-square";
       sketchRow.appendChild(sketchSquare);
-
+      sketchSquare.style.backgroundColor = "white";
       sketchSquare.addEventListener("mouseenter", function () {
         sketchSquare.style.backgroundColor = colorChosen();
+        sketchSquare.style.opacity = gridOpacity();
       });
       sketchSquare.style.height = `${500 / x - 2}px`;
     }
@@ -60,8 +70,8 @@ const inputButton = document.querySelector(".grid-input-btn");
 inputButton.addEventListener("click", function () {
   userGridSize = Number(document.querySelector(".grid-input").value);
   document.querySelector(".sketch-pad").innerHTML = "";
-  if (userGridSize > 100) {
-    alert("Enter a Number less than 100");
+  if (userGridSize > 100 || userGridSize < 5) {
+    alert("Enter a Number between 5 and 100");
     generateGrid(16);
   } else generateGrid(userGridSize);
 });
