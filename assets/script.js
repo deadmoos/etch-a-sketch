@@ -1,18 +1,31 @@
-//define grid value
-let defaultGridSize = 16;
-
-document
-  .querySelector(".grid-input-btn")
-  .addEventListener("click", function () {
-    console.log("button clicked");
-    const userGridSize = Number(document.querySelector(".grid-input").value);
-    defaultGridSize = userGridSize;
-    document.querySelector(".sketch-pad").innerHTML = "";
-    generateGrid(defaultGridSize);
-  });
-
+let userGridSize = 16;
 //define color value
 let gridColor = "black";
+//random number generator
+let randomNum = function () {
+  return Math.floor(Math.random() * 255 + 1);
+};
+
+//choose color
+const colorBlack = document.querySelector(".btn-black");
+colorBlack.addEventListener("click", function () {
+  gridColor = "black";
+});
+
+const colorRGB = document.querySelector(".btn-rgb");
+colorRGB.addEventListener("click", function () {
+  gridColor = `rgb(${randomNum()},${randomNum()},${randomNum()})`;
+  console.log(gridColor);
+});
+
+const colorBrush = document.querySelector(".btn-brush");
+colorBrush.addEventListener("click", function () {
+  gridColor = "black";
+});
+
+//random color generator
+
+//color that progressively gets lighter
 
 //generate container and div inside .sketch-pad
 const generateGrid = function (x) {
@@ -25,11 +38,23 @@ const generateGrid = function (x) {
       let sketchSquare = document.createElement("div");
       sketchSquare.className = "sketch-square";
       sketchRow.appendChild(sketchSquare);
+
       sketchSquare.addEventListener("mouseenter", function () {
         sketchSquare.style.backgroundColor = gridColor;
       });
+      sketchSquare.style.height = `${500 / userGridSize - 2}px`;
     }
   }
+  //setting the height to sketchsquare
 };
 
-generateGrid(16);
+//event listener for input button
+const inputButton = document.querySelector(".grid-input-btn");
+inputButton.addEventListener("click", function () {
+  console.log("button clicked");
+  userGridSize = Number(document.querySelector(".grid-input").value);
+  document.querySelector(".sketch-pad").innerHTML = "";
+  generateGrid(userGridSize);
+});
+
+generateGrid(userGridSize);

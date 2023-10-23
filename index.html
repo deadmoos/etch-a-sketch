@@ -4,21 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch a Sketch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/stylesheet.css">
 </head>
 <body>
     <div class="page-wrapper">
         <div class="heading-container">
-            <h1 class="main-heading">Etch a Sketch</h1>
-            <input type="number" class="grid-input">
-            <button class="grid-input-btn">Generate Grid</button>
+            <h1 class="main-heading">Etch a Sketch</h1>            
         </div>
-        <div class="color-choice-container">
-            <button class="btn-black btn">Black</button>
-            <button class="btn-rgb btn">RGB</button>
-            <button class="btn-brush btn">Brush</button>
+        <div class="sketch-wrapper">
+            <div class="user-input-container">
+                <input type="number" class="grid-input">
+                <button class="grid-input-btn btn">Generate Grid</button>
+                <div class="color-chooser">
+                    <button class="btn-black btn">Black</button>
+                    <button class="btn-rgb btn">RGB</button>
+                    <button class="btn-brush btn">Brush</button>
+
+                </div>
+                
+            </div>
+            <div class="sketch-pad"></div>
         </div>
-        <div class="sketch-pad"></div>
+        
         
     </div>
 </body>

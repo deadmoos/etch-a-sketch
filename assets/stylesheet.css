@@ -8,12 +8,45 @@
   width: 900px;
   margin: 20px auto;
   text-align: center;
+  font-family: "Righteous", sans-serif;
+}
+
+.sketch-wrapper {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.user-input-container {
+  width: max(200px, 20%);
+  text-align: left;
+}
+
+.grid-input {
+  padding: 10px 20px;
+  width: 100px;
+}
+
+.color-chooser {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.btn {
+  font-family: "Lato", sans-serif;
+  padding: 8px 20px;
+  border: 2px solid black;
+  border-radius: 25px;
+  margin: 10px 0px;
+  width: 100px;
 }
 
 .sketch-pad {
   width: 500px;
   margin: 20px auto;
-  border: 1px solid black;
+  border: 2px solid #000000;
 }
 
 .sketch-row {
@@ -22,7 +55,7 @@
 }
 
 .sketch-square {
-  border: 1px solid black;
+  border: 1px solid #00000041;
   flex: 1;
   height: 20px;
 }
