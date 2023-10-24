@@ -1,7 +1,7 @@
 //defaults
 let userGridSize = 16;
 let gridColor = "black";
-
+let defAlpha = 0.1;
 //random number generator
 let randomNum = function () {
   return Math.floor(Math.random() * 255 + 1);
@@ -28,7 +28,12 @@ const colorChosen = function () {
   if (gridColor === "rgb") {
     return `rgb(${randomNum()},${randomNum()},${randomNum()})`;
   } else if (gridColor === "brush") {
-    return "gray";
+    alert(
+      "This functionality hasn't been updated properly. Will be resolved in next update."
+    );
+    let rgba = `rgba(0, 0, 0, ${defAlpha})`;
+    defAlpha += 0.1;
+    return rgba;
   } else {
     return "black";
   }
