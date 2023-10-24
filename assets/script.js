@@ -21,6 +21,9 @@ colorRGB.addEventListener("click", function () {
 const colorBrush = document.querySelector(".btn-brush");
 colorBrush.addEventListener("click", function () {
   gridColor = "brush";
+  alert(
+    "This functionality hasn't been updated properly. Will be resolved in next update."
+  );
 });
 
 //function that returns a color depending upon color chosen
@@ -28,9 +31,6 @@ const colorChosen = function () {
   if (gridColor === "rgb") {
     return `rgb(${randomNum()},${randomNum()},${randomNum()})`;
   } else if (gridColor === "brush") {
-    alert(
-      "This functionality hasn't been updated properly. Will be resolved in next update."
-    );
     let rgba = `rgba(0, 0, 0, ${defAlpha})`;
     defAlpha += 0.1;
     return rgba;
